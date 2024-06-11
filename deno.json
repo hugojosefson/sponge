@@ -1,6 +1,6 @@
 {
   "name": "@moreutils/sponge",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "tasks": {
     "all": "         deno lint --fix && deno fmt && deno task check        && deno task readme && deno task test          && deno task coverage         ",
     "all-reload": "  deno lint --fix && deno fmt && deno task check-reload && deno task readme && deno task test --reload && deno task coverage --reload",
