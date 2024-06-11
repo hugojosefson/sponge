@@ -1,5 +1,6 @@
-import { parseArgs } from "jsr:@std/cli@0.224/parse-args";
+import { parseArgs } from "@std/cli/parse-args";
 import { sponge } from "./sponge.ts";
+export { sponge };
 
 async function main() {
   try {

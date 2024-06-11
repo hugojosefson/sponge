@@ -1,7 +1,9 @@
 {
+  "name": "@moreutils/sponge",
+  "version": "0.0.1",
   "tasks": {
-    "all": "         deno fmt && deno lint && deno task check        && deno task readme && deno task test          && deno task coverage         ",
-    "all-reload": "  deno fmt && deno lint && deno task check-reload && deno task readme && deno task test --reload && deno task coverage --reload",
+    "all": "         deno lint --fix && deno fmt && deno task check        && deno task readme && deno task test          && deno task coverage         ",
+    "all-reload": "  deno lint --fix && deno fmt && deno task check-reload && deno task readme && deno task test --reload && deno task coverage --reload",
     "check": "       deno task foreach-file -- deno check          '{}'",
     "check-reload": "deno task foreach-file -- deno check --reload '{}'",
     "test": "        deno test --coverage --clean",
@@ -14,5 +16,21 @@
     "list-files": "  deno eval 'console.log((await (await import(\"https://deno.land/x/run_simple@2.3.0/mod.ts\")).run(\"git ls-files\")).split(\"\\n\").filter(f=>/\\.((mj|j|t)sx?|jsonc?)$/.test(f)).filter(f=>{try{return !Deno.statSync(f).isDirectory}catch{}}).join(\"\\n\"))'",
     "foreach-file": "deno task list-files | sh -c 'xargs -I {} -- \"$@\"'"
   },
-  "lock": false
+  "imports": {
+    "@std/assert": "jsr:@std/assert@^0.226.0",
+    "@std/cli": "jsr:@std/cli@^0.224.6",
+    "@std/io": "jsr:@std/io@^0.224.1",
+    "@std/testing": "jsr:@std/testing@^0.225.1"
+  },
+  "exports": {
+    ".": "./src/cli.ts"
+  },
+  "publish": {
+    "exclude": [
+      "readme",
+      ".idea",
+      ".vscode",
+      "coverage"
+    ]
+  }
 }
