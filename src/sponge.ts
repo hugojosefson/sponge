@@ -49,7 +49,12 @@ async function resolveOutput(
   append: boolean,
 ): Promise<Writer | (Writer & Closer)> {
   if (isStringOrURL(output)) {
-    return await Deno.open(output, { write: true, append, truncate: !append });
+    return await Deno.open(output, {
+      write: true,
+      create: true,
+      append,
+      truncate: !append,
+    });
   }
   return output;
 }
