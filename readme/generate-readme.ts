@@ -1,9 +1,5 @@
 #!/usr/bin/env -S deno run --allow-read=.
-import {
-  dirname,
-  relative,
-  resolve,
-} from "https://deno.land/std@0.224.0/path/mod.ts";
+import { dirname, relative, resolve } from "@std/path";
 
 /**
  * This program generates the README.md for the root directory.
